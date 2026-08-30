@@ -10,14 +10,19 @@
 <body>
 
     <nav>
-      <div class="logo">
-        <a href="index.html" class="logo-link">
-        <div class="logo-wrapper">
-            <img src="logo2.jpg" alt="logo" class="nav-logo-img">
-        <span>Lama</span>
+        <div class="logo">
+            <a href="index.html" class="logo-link">
+                <div class="logo-wrapper">
+                    <img src="logo2.jpg" alt="logo" class="nav-logo-img">
+                    <span>Lama</span>
+                </div>
+            </a>
         </div>
-        </a>
-    </div>
+
+        <button class="menu-toggle" type="button">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+
         <ul>
             <li><a href="index.html" class="active">Home</a></li>
             <li><a href="about.html">About</a></li>
@@ -25,8 +30,9 @@
             <li><a href="startup.html">Startup Vision</a></li>
             <li><a href="cv.html">CV</a></li>
         </ul>
+
         <a href="cv.html">
-        <button class="connect-btn">Let's Connect ✦</button>
+            <button class="connect-btn">Let's Connect ✦</button>
         </a>
     </nav>
 
@@ -36,42 +42,79 @@
             <h1>Lama</h1>
             <h2>UX/UI Designer & <br> Information Systems Specialist</h2>
             <p>I design intuitive digital experiences and build smart systems that solve real problems and create value.</p>
-            
+
             <div class="btns">
                 <a href="projects.html" style="text-decoration: none;">
-                <button class="view-btn">View Projects →</button>
+                    <button class="view-btn">View Projects →</button>
                 </a>
-                <button class="cv-btn">Download CV <i class="fa-solid fa-download"></i></button>
+
+                <button class="cv-btn">
+                    Download CV <i class="fa-solid fa-download"></i>
+                </button>
             </div>
 
-<div class="home-social-list">
-    <a href="https://wa.me/966505989673" class="social-item"><i class="fab fa-whatsapp"></i></a>
-    <a href="https://x.com/leot2y?s=21" class="social-item"><i class="fab fa-x-twitter"></i></a>
-    <a href="https://www.linkedin.com/in/lama-alanzai-1803762b8?utm_source=share_via&utm_content=profile&utm_medium=member_ios" class="social-item"><i class="fab fa-linkedin-in"></i></a>
-    <a href="https://github.com/lalimue" class="social-item"><i class="fab fa-github"></i></a>
-</div>
+            <div class="home-social-list">
+                <a href="https://wa.me/966505989673" class="social-item">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+
+                <a href="https://x.com/leot2y?s=21" class="social-item">
+                    <i class="fab fa-x-twitter"></i>
+                </a>
+
+                <a href="https://www.linkedin.com/in/lama-alanzai-1803762b8?utm_source=share_via&utm_content=profile&utm_medium=member_ios" class="social-item">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+
+                <a href="https://github.com/lalimue" class="social-item">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
         </div>
 
         <div class="right-hero">
-    <img src="loly.png" alt="Lama Working" class="hero-avatar">
-    
-              <div class="floating-icons">
-   <div class="card card-code">
-        <i class="fas fa-code"></i> <span>Code</span>
-    </div>
+            <img src="loly.png" alt="Lama Working" class="hero-avatar">
 
-    <div class="card card-design">
-        <i class="fas fa-paint-brush"></i>
-        <span>Design</span>
-    </div>
+            <div class="floating-icons">
+                <div class="card card-code">
+                    <i class="fas fa-code"></i>
+                    <span>Code</span>
+                </div>
 
-    <div class="card card-mobile">
-        <i class="fas fa-mobile-alt"></i>
-        <span>Mobile</span>
-    </div>
+                <div class="card card-design">
+                    <i class="fas fa-paint-brush"></i>
+                    <span>Design</span>
+                </div>
+
+                <div class="card card-mobile">
+                    <i class="fas fa-mobile-alt"></i>
+                    <span>Mobile</span>
+                </div>
+            </div>
         </div>
     </main>
 
+    <script>
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navMenu = document.querySelector('nav ul');
+
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('menu-open');
+
+            menuToggle.innerHTML = navMenu.classList.contains('menu-open')
+                ? '<i class="fa-solid fa-xmark"></i>'
+                : '<i class="fa-solid fa-bars"></i>';
+        });
+
+        navMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('menu-open');
+                menuToggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
+            });
+        });
+    </script>
+
     <script src="script.js"></script>
+
 </body>
 </html>
