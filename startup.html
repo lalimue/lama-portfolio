@@ -9,26 +9,32 @@
 </head>
 <body>
 
-      <nav>
-      <div class="logo">
+<nav>
+    <div class="logo">
         <a href="index.html" class="logo-link">
-        <div class="logo-wrapper">
-            <img src="logo2.jpg" alt="logo" class="nav-logo-img">
-        <span>Lama</span>
-        </div>
+            <div class="logo-wrapper">
+                <img src="logo2.jpg" alt="logo" class="nav-logo-img">
+                <span>Lama</span>
+            </div>
         </a>
     </div>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="projects.html">Projects</a></li>
-            <li><a href="startup.html"class="active">Startup Vision</a></li>
-            <li><a href="cv.html">CV</a></li>
-        </ul>
-         <a href="cv.html">
+
+    <button class="menu-toggle" type="button">
+        <i class="fa-solid fa-bars"></i>
+    </button>
+
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="startup.html">Startup Vision</a></li>
+        <li><a href="cv.html" class="active">CV</a></li>
+    </ul>
+
+    <a href="cv.html">
         <button class="connect-btn">Let's Connect ✦</button>
-        </a>
-    </nav>
+    </a>
+</nav>
     <section class="vision-section">
     <div class="vision-container">
         <div class="vision-content">
@@ -59,5 +65,24 @@
         </div>
     </div>
 </section>
+<script>
+const menuToggle = document.querySelector('.menu-toggle');
+const navMenu = document.querySelector('nav ul');
+
+menuToggle.addEventListener('click', () => {
+    navMenu.classList.toggle('menu-open');
+
+    menuToggle.innerHTML = navMenu.classList.contains('menu-open')
+        ? '<i class="fa-solid fa-xmark"></i>'
+        : '<i class="fa-solid fa-bars"></i>';
+});
+
+navMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+        navMenu.classList.remove('menu-open');
+        menuToggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
+    });
+});
+</script>
 </body>
 </html>
