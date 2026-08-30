@@ -1420,7 +1420,6 @@ nav ul li a, .connect-btn, .view-btn{
     nav { padding: 12px 5%; }
     .nav-logo-img { height: 50px; }
     .logo span { font-size: 21px; }
-    nav ul { display: none; }
     .connect-btn { padding: 7px 13px; font-size: 12px; }
     .hero { flex-direction: column; padding: 45px 6%; min-height: auto; gap: 30px; text-align: center; }
     .content { max-width: 100%; }
