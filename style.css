@@ -1507,6 +1507,10 @@ nav ul li a, .connect-btn, .view-btn{
     .gallery-item.large { height: 220px; }
     .gallery-item { height: 170px; }
 }
+/* =========================================================
+   MOBILE MENU
+   ========================================================= */
+
 .menu-toggle {
     display: none;
     width: 42px;
@@ -1519,23 +1523,28 @@ nav ul li a, .connect-btn, .view-btn{
     cursor: pointer;
     align-items: center;
     justify-content: center;
+    flex-shrink: 0;
 }
 
 @media (max-width: 800px) {
+
     nav {
         position: relative;
-    }
-
-    .menu-toggle {
+        width: 100%;
+        max-width: 100%;
+        padding: 12px 5%;
         display: flex;
+        align-items: center;
     }
 
+    /* Hide the desktop navigation links on mobile */
     nav ul {
         display: none;
         position: absolute;
         top: 75px;
         right: 5%;
         width: 210px;
+        margin: 0;
         padding: 15px;
         flex-direction: column;
         gap: 5px;
@@ -1546,13 +1555,14 @@ nav ul li a, .connect-btn, .view-btn{
         z-index: 1000;
     }
 
+    /* Show menu ONLY after the menu button is pressed */
     nav ul.menu-open {
         display: flex;
     }
 
     nav ul li {
-        margin: 0;
         width: 100%;
+        margin: 0;
     }
 
     nav ul li a {
@@ -1562,79 +1572,21 @@ nav ul li a, .connect-btn, .view-btn{
         font-size: 13px;
     }
 
-    .connect-btn {
-        display: none;
-    }
-}
-.menu-toggle {
-    display: none;
-    width: 42px;
-    height: 42px;
-    border: 1px solid rgba(255, 77, 184, 0.6);
-    border-radius: 10px;
-    background: transparent;
-    color: #fff;
-    font-size: 20px;
-    cursor: pointer;
-    align-items: center;
-    justify-content: center;
-}
-
-@media (max-width: 800px) {
-    nav {
-        position: relative;
-    }
-
+    /* Hamburger button: far right */
     .menu-toggle {
         display: flex;
+        margin-left: auto;
     }
 
-    nav ul {
-        display: none;
-        position: absolute;
-        top: 75px;
-        right: 5%;
-        width: 210px;
-        padding: 15px;
-        flex-direction: column;
-        gap: 5px;
-        background: rgba(10, 1, 24, 0.98);
-        border: 1px solid rgba(123, 67, 255, 0.4);
-        border-radius: 16px;
-        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
-        z-index: 1000;
-    }
-
-    nav ul.menu-open {
-        display: flex;
-    }
-
-    nav ul li {
-        margin: 0;
-        width: 100%;
-    }
-
-    nav ul li a {
-        display: block;
-        width: 100%;
-        padding: 11px 8px;
-        font-size: 13px;
-    }
-
-    .connect-btn {
+    /* Hide Let's Connect on mobile */
+    nav > a {
         display: none;
     }
-}
-.cv-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
 }
 
 /* =========================================================
-   FINAL RESPONSIVE FIX
-   Keeps the original design — only fixes mobile overflow.
+   FINAL MOBILE SAFETY FIXES
+   Only prevent overflow; desktop design is unchanged.
    ========================================================= */
 
 @media (max-width: 800px) {
@@ -1646,98 +1598,21 @@ nav ul li a, .connect-btn, .view-btn{
         overflow-x: hidden;
     }
 
-    /* Keep every image inside the phone width */
     img {
         max-width: 100%;
     }
 
-    /* ---------- NAVBAR ---------- */
-
-    nav {
-        width: 100%;
-        max-width: 100%;
-        padding-left: 5%;
-        padding-right: 5%;
-        gap: 10px;
-    }
-
-    .logo {
-        flex-shrink: 0;
-    }
-
-    .logo-wrapper {
-        gap: 6px;
-    }
-
-    .nav-logo-img {
-        max-width: 43px;
-    }
-
-    /* The HTML currently has no .menu-toggle button,
-       so don't create an invisible menu dependency. */
-    nav ul {
-        display: flex;
-        flex: 1;
-        justify-content: center;
-        gap: 8px;
-        min-width: 0;
-    }
-
-    nav ul li {
-        margin: 0;
-        flex-shrink: 1;
-    }
-
-    nav ul li a {
-        font-size: 10px;
-        white-space: nowrap;
-    }
-
-    nav > a {
-        flex-shrink: 0;
-    }
-
-    .connect-btn {
-        display: none;
-    }
-
-    /* ---------- HOME ---------- */
-
-    .hero,
-    .about-section,
-    .projects-section,
-    .vision-section,
-    .cv-social-section {
-        max-width: 100%;
-        overflow: hidden;
-    }
-
-    .content {
-        width: 100%;
-        min-width: 0;
-    }
-
-    .right-hero {
-        max-width: 100%;
-        overflow: hidden;
-    }
-
-    .hero-avatar {
-        max-width: 100%;
-        height: auto;
-    }
-
-    /* ---------- PROJECT PAGE ---------- */
-
     .project-details {
         width: 90%;
-        max-width: 1100px;
+        max-width: 100%;
         min-width: 0;
     }
 
-    .project-heading {
-        width: 100%;
+    .project-heading,
+    .project-description,
+    .project-tech {
         min-width: 0;
+        max-width: 100%;
     }
 
     .project-heading h1,
@@ -1750,7 +1625,6 @@ nav ul li a, .connect-btn, .view-btn{
         width: 100%;
         max-width: 100%;
         height: auto;
-        overflow: hidden;
     }
 
     .project-main-image img {
@@ -1758,16 +1632,6 @@ nav ul li a, .connect-btn, .view-btn{
         max-width: 100%;
         height: auto;
         object-fit: contain;
-    }
-
-    .project-content {
-        width: 100%;
-        min-width: 0;
-    }
-
-    .project-description,
-    .project-tech {
-        min-width: 0;
     }
 
     .gallery-grid {
@@ -1792,44 +1656,18 @@ nav ul li a, .connect-btn, .view-btn{
     }
 }
 
-/* ---------- VERY SMALL PHONES ---------- */
-
 @media (max-width: 480px) {
 
     nav {
         padding-left: 4%;
         padding-right: 4%;
-        gap: 6px;
-    }
-
-    .nav-logo-img {
-        height: 43px;
-    }
-
-    .logo span {
-        font-size: 18px;
-    }
-
-    nav ul {
-        gap: 5px;
-    }
-
-    nav ul li a {
-        font-size: 9px;
     }
 
     .project-details {
         width: 92%;
     }
 
-    .project-heading h1 {
-        font-size: 31px;
-    }
-
-    .project-main-image {
-        height: auto;
-    }
-
+    .project-main-image,
     .gallery-item,
     .gallery-item.large {
         height: auto;
