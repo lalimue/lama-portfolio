@@ -371,7 +371,7 @@ nav ul li a, .connect-btn, .view-btn{
             margin: 0 auto;
             display: flex;
             flex-direction:column;
-            gap: 80pxpx;
+            gap: 80px;
         }
 
         .about-top-row {
@@ -1623,5 +1623,215 @@ nav ul li a, .connect-btn, .view-btn{
 
     .connect-btn {
         display: none;
+    }
+}
+.cv-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+/* =========================================================
+   FINAL RESPONSIVE FIX
+   Keeps the original design — only fixes mobile overflow.
+   ========================================================= */
+
+@media (max-width: 800px) {
+
+    html,
+    body {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
+    /* Keep every image inside the phone width */
+    img {
+        max-width: 100%;
+    }
+
+    /* ---------- NAVBAR ---------- */
+
+    nav {
+        width: 100%;
+        max-width: 100%;
+        padding-left: 5%;
+        padding-right: 5%;
+        gap: 10px;
+    }
+
+    .logo {
+        flex-shrink: 0;
+    }
+
+    .logo-wrapper {
+        gap: 6px;
+    }
+
+    .nav-logo-img {
+        max-width: 43px;
+    }
+
+    /* The HTML currently has no .menu-toggle button,
+       so don't create an invisible menu dependency. */
+    nav ul {
+        display: flex;
+        flex: 1;
+        justify-content: center;
+        gap: 8px;
+        min-width: 0;
+    }
+
+    nav ul li {
+        margin: 0;
+        flex-shrink: 1;
+    }
+
+    nav ul li a {
+        font-size: 10px;
+        white-space: nowrap;
+    }
+
+    nav > a {
+        flex-shrink: 0;
+    }
+
+    .connect-btn {
+        display: none;
+    }
+
+    /* ---------- HOME ---------- */
+
+    .hero,
+    .about-section,
+    .projects-section,
+    .vision-section,
+    .cv-social-section {
+        max-width: 100%;
+        overflow: hidden;
+    }
+
+    .content {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .right-hero {
+        max-width: 100%;
+        overflow: hidden;
+    }
+
+    .hero-avatar {
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* ---------- PROJECT PAGE ---------- */
+
+    .project-details {
+        width: 90%;
+        max-width: 1100px;
+        min-width: 0;
+    }
+
+    .project-heading {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .project-heading h1,
+    .project-heading p {
+        max-width: 100%;
+        overflow-wrap: break-word;
+    }
+
+    .project-main-image {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        overflow: hidden;
+    }
+
+    .project-main-image img {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+
+    .project-content {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .project-description,
+    .project-tech {
+        min-width: 0;
+    }
+
+    .gallery-grid {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .gallery-item {
+        max-width: 100%;
+        min-width: 0;
+    }
+
+    .gallery-item img {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+
+    .project-links {
+        max-width: 100%;
+    }
+}
+
+/* ---------- VERY SMALL PHONES ---------- */
+
+@media (max-width: 480px) {
+
+    nav {
+        padding-left: 4%;
+        padding-right: 4%;
+        gap: 6px;
+    }
+
+    .nav-logo-img {
+        height: 43px;
+    }
+
+    .logo span {
+        font-size: 18px;
+    }
+
+    nav ul {
+        gap: 5px;
+    }
+
+    nav ul li a {
+        font-size: 9px;
+    }
+
+    .project-details {
+        width: 92%;
+    }
+
+    .project-heading h1 {
+        font-size: 31px;
+    }
+
+    .project-main-image {
+        height: auto;
+    }
+
+    .gallery-item,
+    .gallery-item.large {
+        height: auto;
     }
 }
